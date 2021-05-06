@@ -1,0 +1,77 @@
+
+   <% include partials/_header%> 
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="card">
+            <div class="card-boddy">
+              <form action="/api/add" method="POST">
+                <div class="form-group">
+                  <input type="text" name="vulnerabilidad" placeholder="Inserte el nombre de la vulnerabilidad" class="form-control" >
+                </div>
+                <div class="form-group">
+                  <input type="text" name="tipo_vulnerabilidad" placeholder="Inserte el tipo de la vulnerabilidad" class="form-control" >
+                </div>
+                <div class="form-group">
+                  <input type="text" name="tecnología" placeholder="Inserte la tecnología a la cual corresponde la vulnerabilidad" class="form-control" >
+                </div>
+                <div class="form-group">
+                  <input type="text" name="impacto" placeholder="Inserte el impacto de la vulnerabilidad" class="form-control" >
+                </div>
+                <div class="form-group">
+                  <input type="text" name="impacto_medido" placeholder="Inserte el impacto medido" class="form-control" >
+                </div>
+                <div class="form-group">
+                  <input type="text" name="usuariosafectados" placeholder="Inserte los usuarios afectados" class="form-control" >
+                </div>
+                <div class="form-group">
+                  <input type="text" name="contramedida" placeholder="Inserte la contramedida" class="form-control" >
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-fluid w-100">
+                  Add
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>N</th>
+                <th>vulnerabilidad</th>
+                <th>tipo</th>
+                <th>tecnología</th>
+                <th>impacto</th>
+                <th>impacto_medido</th>
+                <th>usuarios afectados</th>
+                <th>contramedida</th>
+                <th>Operaciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(var i=0; i < muestra.length; i++) { %>
+                <tr>
+                  <td><%= i + 1 %></td>
+                  <td><%= muestra[i].vulnerabilidad %></td>
+                  <td><%= muestra[i].tipo_vulnerabilidad %></td>
+                  <td><%= muestra[i].tecnología %></td>
+                  <td><%= muestra[i].impacto %></td>
+                  <td><%= muestra[i].impacto_medido %></td>
+                  <td><%= muestra[i].usuariosafectados %></td>
+                  <td><%= muestra[i].contramedida %></td>
+                  <td>
+                    <a href="/api/delete/<%= muestra[i]._id %>" class="btn btn-danger">Delete</a>
+                    <a href="/edit/<%= muestra[i]._id %>" class="btn btn-info">Edit</a>
+                  </td>
+                  
+                </tr>
+                <% } %>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+    <% include partials/_footer%> 
