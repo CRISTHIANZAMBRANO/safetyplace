@@ -26,8 +26,8 @@ myModal._element.querySelector(".guardar").addEventListener("click", function ()
           Featured
         </div>
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <h5 class="card-title">Descripcion</h5>
+          
           
         </div>
         <div class="card-footer text-muted">
@@ -52,8 +52,8 @@ myModal._element.querySelector(".guardar").addEventListener("click", function ()
 `;
 
   let doc = new DOMParser().parseFromString(popup, "text/html").body;
-  doc.querySelector(".card-body").appendChild(editbutton);
-  console.log(doc);
+  //doc.querySelector(".card-body").appendChild(editbutton);
+  //console.log(doc);
   a[indexcolumn].appendChild(doc);
 
  //Poner fecha actual de sistema a las cards
@@ -67,9 +67,28 @@ myModal._element.querySelector(".guardar").addEventListener("click", function ()
   doc.querySelector(".card-footer").appendChild(date);
 
  }
- 
-fechita();
+ //Poner campos en el card
 
+ const llenarcard=function(){
+  
+  let nombre= $("#nombrevul").val();
+  const nom=document.createElement("p");
+  nom.innerText=nombre;
+  doc.querySelector(".card-header").appendChild(nom)
+  let descripcion=$("#descri").val();
+  const desc=document.createElement("p");
+  desc.innerText=descripcion;
+  doc.querySelector(".card-body").appendChild(desc)
+ }
+ 
+llenarcard();
+fechita();
+const eliminar=`<a href="/api/delete/<%= muestra[i]._id %>" class="btn btn-danger d_flex">Delete</a>`
+const editar=`<a href="/edit/<%= muestra[i]._id %>" class="btn btn-info d_flex">Edit</a>`
+let eli= new DOMParser().parseFromString(eliminar,"text/html").body;
+let edit=new DOMParser().parseFromString(editar,"text/html").body;
+doc.querySelector(".card-body").appendChild(edit)
+doc.querySelector(".card-body").appendChild(eli)
   drag();
 })
 

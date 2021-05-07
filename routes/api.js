@@ -8,7 +8,8 @@ router.post('/add',async function(req,res,next){
     const vulne=new vul(req.body);
     try{
       await vulne.save();
-      res.redirect('/administrador');
+     
+      ///////res.redirect('/principal');
      }catch(e){
       res.send('error')
      }
@@ -55,8 +56,13 @@ router.post('/add',async function(req,res,next){
     
     if(data){
       console.log("entra");
+      try{
+        const muestra = vul.find();
+       res.render("dashboard_principal",{iden:data._id,nombre:data['nombre'],muestra})
+      }catch(e){
+        res.send('error');
+      }
       
-      res.render("dashboard_principal",{iden:data._id,nombre:data['nombre']})
       
       
     }
@@ -65,6 +71,7 @@ router.post('/add',async function(req,res,next){
     }
    })
    .catch(e =>{
+     console.log(e)
      res.send("error");
    })
    

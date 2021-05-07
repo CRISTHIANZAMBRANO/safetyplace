@@ -95,32 +95,48 @@
   
 
   </div>
-
-
+ 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">@</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  <form action="/api/add" method="POST">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+              <h3>Este formulario es para insertar la vulnerabilidad encontrada</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary guardar">Save changes</button>
+          <div class="modal-body">
+            <div class="form-group">
+              <input type="text" id="nombrevul" name="vulnerabilidad" Onchange = "('nombrevul')"value="" placeholder="Inserte el nombre de la vulnerabilidad" class="form-control" >
+            </div>
+            <div class="form-group">
+              <input type="text" name="tipo_vulnerabilidad" placeholder="Inserte el tipo de la vulnerabilidad" class="form-control" >
+            </div>
+            <div class="form-group">
+              <input type="text" name="tecnología" placeholder="Inserte la tecnología a la cual corresponde la vulnerabilidad" class="form-control" >
+            </div>
+            <div class="form-group">
+              <input type="text" id="descri" name="impacto" Onchange = "('nombrevul')" value="" placeholder="Inserte el impacto de la vulnerabilidad" class="form-control" >
+            </div>
+            <div class="form-group">
+              <input type="text" name="impacto_medido" placeholder="Inserte el impacto medido" class="form-control" >
+            </div>
+            <div class="form-group">
+              <input type="text" name="usuariosafectados" placeholder="Inserte los usuarios afectados" class="form-control" >
+            </div>
+            <div class="form-group">
+              <input type="text" name="contramedida" placeholder="Inserte la contramedida" class="form-control" >
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary guardar">Add</button>
+
+          </div>
         </div>
       </div>
     </div>
-  </div>
-
+  </form>
 
 
 

@@ -25,7 +25,12 @@ router.get('/edit/:id', async function(req, res){
 }
 });
 router.get('/principal', async function(req, res, next) {
-  res.render('dashboard_principal',{iden:undefined,nombre:undefined});
+  try{
+    const muestra = await vul.find();
+    res.render('dashboard_principal',{iden:undefined,nombre:undefined,muestra});
+  }catch(e){
+    res.send('error');
+  }
   
 });
 module.exports = router;
