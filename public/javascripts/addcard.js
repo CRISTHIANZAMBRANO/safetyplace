@@ -8,88 +8,101 @@ a.forEach((i, index) => {
   });
 
 });
-myModal._element.querySelector(".guardar").addEventListener("click", function () {
+myModal._element.querySelector(".guardar").addEventListener("click", function (e) {
+  e.preventDefault();
+  var vulnerabilidad = $('form').serializeArray().reduce(function(obj, item) {
+    obj[item.name] = item.value;
+    return obj;
+}, {});
+  let u=$(".identificacion").val();
+  console.log(u)
+  vulnerabilidad.idus=u;
+  fetch('http://localhost:5000/api/add', { method: "POST",
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  }, body: JSON.stringify(vulnerabilidad) })
 
-
-  const editbutton = document.createElement("a");
-  editbutton.classList.add("btn", "btn-primary");
-  editbutton.innerHTML = "Editar";
-  editbutton.onclick = function () {
-    console.log("sirve")
-  }
-  
-  //crear popup element HTML
-  const popup = `
-    <div class="row ">
-      <div class="card text-center ">
-        <div class="card-header">
-          Featured
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Descripcion</h5>
-          
-          
-        </div>
-        <div class="card-footer text-muted">
-       
-        </div>
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      //crear popup element HTML
+      const tarjeta = `
+  <div class="row ">
+    <div class="card text-center ">
+      <div class="card-header">
+        
+      </div>
+      <div  class="card-body">
+        <h6 class="card-title">Descripcion</h6>
+        
+      </div>
+      <div class="card-footer text-muted fecha">
+     
       </div>
     </div>
-    <style>
-    .row{
-      margin-left:0;
-      box-sizing: border-box;
-      border-radius: 10px;
-      display: inline-block;
-      vertical-align: top;
-      width:272px;
-    }
-    .fecha{
-      background-color: none;
-      color: black;
-    }
-    </style>
+  </div>
+  <style>
+  .row{
+    margin-left:0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: top;
+    width:272px;
+  }
+  .fecha{
+    background-color: none;
+    color: black;
+  }
+  .fecha{
+    justify-content: center;
+  }
+  .accion{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+  }
+  </style>
 `;
 
-  let doc = new DOMParser().parseFromString(popup, "text/html").body;
-  //doc.querySelector(".card-body").appendChild(editbutton);
-  //console.log(doc);
-  a[indexcolumn].appendChild(doc);
+      let doc = new DOMParser().parseFromString(tarjeta, "text/html").body;
+      //doc.querySelector(".card-body").appendChild(editbutton);
+      //console.log(doc);
+      a[indexcolumn].appendChild(doc);
+      
+      const nom = document.createElement("h5");
+      nom.innerText = data.vulnerabilidad;
+      doc.querySelector(".card-header").appendChild(nom)
+      const desc = document.createElement("p");
+      desc.innerText = data.impacto;
+      doc.querySelector(".card-body").appendChild(desc)
+      const bt=document.createElement("div")
+      bt.classList.add("accion")
+      doc.querySelector(".card-body").appendChild(bt)
+      const eliminar = `<a href="/api/delete/${data._id}" class="btn btn-danger ">Delete</a>`
+      const editar = `<a href="/edit/${data._id}" class="btn btn-info ">Edit</a>`
+      let eli = new DOMParser().parseFromString(eliminar, "text/html").body;
+      let edit = new DOMParser().parseFromString(editar, "text/html").body;
 
- //Poner fecha actual de sistema a las cards
- const fechita =function(){
-  var d = new Date();
-  var z =d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
-  let date=document.createElement("div");
-  date.classList.add("fecha");
-  date.type="text";
-  date.innerText=z;
-  doc.querySelector(".card-footer").appendChild(date);
+      doc.querySelector(".accion").appendChild(edit)
+      doc.querySelector(".accion").appendChild(eli)
+      var d = new Date();
+      var z = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear();
+      let date = document.createElement("p");
+      date.classList.add("fecha");
+      date.type = "text";
+      date.innerText = z;
+      doc.querySelector(".card-footer").appendChild(date);
+      drag();
+      
+    }
+    )
+  return
 
- }
- //Poner campos en el card
 
- const llenarcard=function(){
   
-  let nombre= $("#nombrevul").val();
-  const nom=document.createElement("p");
-  nom.innerText=nombre;
-  doc.querySelector(".card-header").appendChild(nom)
-  let descripcion=$("#descri").val();
-  const desc=document.createElement("p");
-  desc.innerText=descripcion;
-  doc.querySelector(".card-body").appendChild(desc)
- }
- 
-llenarcard();
-fechita();
-const eliminar=`<a href="/api/delete/<%= muestra[i]._id %>" class="btn btn-danger d_flex">Delete</a>`
-const editar=`<a href="/edit/<%= muestra[i]._id %>" class="btn btn-info d_flex">Edit</a>`
-let eli= new DOMParser().parseFromString(eliminar,"text/html").body;
-let edit=new DOMParser().parseFromString(editar,"text/html").body;
-doc.querySelector(".card-body").appendChild(edit)
-doc.querySelector(".card-body").appendChild(eli)
-  drag();
+  
 })
 
 

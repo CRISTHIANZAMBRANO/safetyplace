@@ -7,7 +7,8 @@ let VulSchema= new Schema({
     impacto: String,
     impacto_medido:String,
     usuariosafectados: String,
-    contramedida: String
+    contramedida: String,
+    idus:String
     
 });
 

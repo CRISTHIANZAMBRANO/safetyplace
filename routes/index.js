@@ -15,6 +15,7 @@ router.get('/administrador', async function(req, res, next) {
 });
 router.get('/edit/:id', async function(req, res){
   const { id }= req.params;
+  console.log("este es el id: "+id)
   try{
   const objetovul = await vul.findById(id);
   res.render('edit',{
@@ -28,6 +29,7 @@ router.get('/principal', async function(req, res, next) {
   try{
     const muestra = await vul.find();
     res.render('dashboard_principal',{iden:undefined,nombre:undefined,muestra});
+    
   }catch(e){
     res.send('error');
   }
