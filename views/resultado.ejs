@@ -1,0 +1,52 @@
+<% include partials/_header%> 
+<style>
+    body {
+      background-image: url(/images/fondo.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    p{
+        text-align: center;
+        font-size: large;
+        color: aliceblue;
+    }
+</style>
+
+<br>
+<p>Estas son todas las coincidencias encontradas en nuestra base de datos</p>
+<div class="d-flex">
+    
+    <table class="table table-bordered table-hover tablita">
+      <thead>
+        <tr>
+          
+          <th>vulnerabilidad</th>
+          <th>tipo</th>
+          <th>tecnología</th>
+          <th>Descripción</th>
+          <th>impacto_medido</th>
+          <th>usuarios afectados</th>
+          <th>contramedida</th>
+          <th>Regresar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0; i < h.length; i++) { %>
+          <tr>
+            <td><%= h[i].vulnerabilidad %></td>
+            <td><%= h[i].tipo_vulnerabilidad %></td>
+            <td><%= h[i].tecnología %></td>
+            <td><%= h[i].impacto %></td>
+            <td><%= h[i].impacto_medido %></td>
+            <td><%= h[i].usuariosafectados %></td>
+            <td><%= h[i].contramedida %></td>
+            
+            <td><a href="/principal" class="btn regresar">Volver</a></td>
+           
+            
+          </tr>
+          <% } %>
+      </tbody>
+    </table>
+
+  </div>

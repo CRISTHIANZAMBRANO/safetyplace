@@ -1,7 +1,13 @@
 <% include partials/_header%> 
-
-<div class="col-md-5">
-    <div class="card">
+<style>
+  body {
+    background-image: url(/images/fondo.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+  }
+</style>
+<div class=" col-md-5 mx-auto ">
+    <div class=" card edi">
       <div class="card-boddy">
         <form action="/api/edit/<%= objetovul._id %>" method="POST">
           <div class="form-group">

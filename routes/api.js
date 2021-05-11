@@ -4,6 +4,7 @@ require('../ctrl/mongo');
 const vul= require('../model/vul');
 const usr= require('../model/usr');
 const session=require('express-session');
+
 router.post('/add',async function(req,res,next){
   console.log(req.body)
     const vulne=new vul(req.body);
@@ -19,7 +20,7 @@ router.post('/add',async function(req,res,next){
     const { id }= req.params;
     try{
     await vul.remove({_id: id});
-    res.redirect('/administrador');
+    res.redirect('/principal');
     }catch(e){
       res.send('error');
     }
@@ -55,16 +56,9 @@ router.post('/add',async function(req,res,next){
    .then(data => {
     
     if(data){
-      console.log("entra");
-      try{
-       const muestra = vul.find();
-       //let prueba=req.session.data._id;
-       ///console.log("id usuario: "+prueba)
-       res.render("dashboard_principal",{iden:data._id,nombre:data['nombre'],muestra})
-      }catch(e){
-        res.send('error');
-      }
-      
+      req.session.idusr = data._id;
+      req.session.nombre=data.nombre;
+      res.redirect("/principal")
       
       
     }
@@ -88,5 +82,27 @@ router.post('/add',async function(req,res,next){
      res.status(404)
    }
    
+ });
+ router.post('/buscar',async function(req,res){
+  vul
+  .find({vulnerabilidad:req.body.buscar})
+  .then(data => {
+    if(data){
+      try{
+        const h=Array.from(data)
+        console.log(h[0].vulnerabilidad)
+        res.render("resultado",{h})
+
+      }catch(e){
+        res.sendStatus(404)
+      }
+    }
+    else{
+      res.sendStatus(404)
+    }
+
+  })
+   
+ 
  });
   module.exports=router;

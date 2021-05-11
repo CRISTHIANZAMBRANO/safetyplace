@@ -82,13 +82,15 @@ myModal._element.querySelector(".guardar").addEventListener("click", function (e
       doc.querySelector(".card-body").appendChild(bt)
       const eliminar = `<a href="/api/delete/${data._id}" class="btn btn-danger ">Delete</a>`
       const editar = `<a href="/edit/${data._id}" class="btn btn-info ">Edit</a>`
+      const view=`<a href="/info/${data._id}" class="btn btn-info ">Ver</a>`
       let eli = new DOMParser().parseFromString(eliminar, "text/html").body;
       let edit = new DOMParser().parseFromString(editar, "text/html").body;
-
+      let ver = new DOMParser().parseFromString(view, "text/html").body;
       doc.querySelector(".accion").appendChild(edit)
       doc.querySelector(".accion").appendChild(eli)
+      doc.querySelector(".accion").appendChild(ver)
       var d = new Date();
-      var z = d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear();
+      var z = d.toDateString();
       let date = document.createElement("p");
       date.classList.add("fecha");
       date.type = "text";

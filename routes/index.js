@@ -25,10 +25,32 @@ router.get('/edit/:id', async function(req, res){
   res.send('error');
 }
 });
+
+router.get('/info/:id', async function(req, res){
+  const { id }= req.params;
+  console.log("este es el id: "+id)
+  try{
+  const muestra = await vul.findById(id);
+  res.render('info',{
+    muestra
+  });
+}catch(e){
+  res.send('error');
+}
+});
+
 router.get('/principal', async function(req, res, next) {
   try{
-    const muestra = await vul.find();
-    res.render('dashboard_principal',{iden:undefined,nombre:undefined,muestra});
+    console.log(req.session.idusr)
+    if(req.session.idusr){
+      const muestra = await vul.find({idus:req.session.idusr});
+      console.log(muestra)
+      res.render('dashboard_principal',{iden:req.session.idusr,nombre:req.session.nombre,muestra});
+    }
+  else{
+    res.redirect("/");
+  }
+    
     
   }catch(e){
     res.send('error');

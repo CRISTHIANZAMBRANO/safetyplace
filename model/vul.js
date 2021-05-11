@@ -9,7 +9,7 @@ let VulSchema= new Schema({
     usuariosafectados: String,
     contramedida: String,
     idus:String
-    
-});
+
+},{timestamps:true});
 
  module.exports= mongoose.model('vulnerability',VulSchema);

@@ -1,0 +1,47 @@
+<% include partials/_header%> 
+<style>
+    body {
+      background-image: url(/images/fondo.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+    }
+</style>
+<div>
+    <p>prueba</p>
+</div>
+<br>
+<div class="d-flex  tabla">
+    
+    <table class="table table-bordered table-hover tablita">
+      <thead>
+        <tr>
+          
+          <th>vulnerabilidad</th>
+          <th>tipo</th>
+          <th>tecnología</th>
+          <th>Descripción</th>
+          <th>impacto_medido</th>
+          <th>usuarios afectados</th>
+          <th>contramedida</th>
+          <th>Regresar</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          <tr>
+            <td><%= muestra.vulnerabilidad %></td>
+            <td><%= muestra.tipo_vulnerabilidad %></td>
+            <td><%= muestra.tecnología %></td>
+            <td><%= muestra.impacto %></td>
+            <td><%= muestra.impacto_medido %></td>
+            <td><%= muestra.usuariosafectados %></td>
+            <td><%= muestra.contramedida %></td>
+            <td><a href="/principal" class="btn regresar">Volver</a></td>
+           
+            
+          </tr>
+          
+      </tbody>
+    </table>
+
+  </div>

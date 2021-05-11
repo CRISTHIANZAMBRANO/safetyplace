@@ -78,4 +78,60 @@
 #barrita>div>a{
   color: aliceblue;
 }
+.tabla{
 
+  background-color: transparent ;
+  
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.tablita{
+  border: white;
+}
+.tablita>thead{
+  color: aliceblue;
+  font-size: large;
+  font-style: italic;
+}
+.tablita>tbody{
+color: aliceblue;
+align-items: center;
+}
+.regresar{
+  background-color: aqua;
+  color: black;
+  font-style: normal;
+  border: black;
+}
+.regresar:hover{
+  background-color: greenyellow;
+}
+.editar{
+  position:absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  
+}
+.row{
+  margin-left:0;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: inline-block;
+  vertical-align: top;
+  width:272px;
+}
+.fecha{
+  background-color: none;
+  color: black;
+}
+.fecha{
+  justify-content: center;
+}
+.accion{
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
