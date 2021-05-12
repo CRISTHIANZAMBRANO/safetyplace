@@ -30,7 +30,7 @@ router.post('/add',async function(req,res,next){
     const { id }= req.params;
     try{
     await vul.update({_id:id},req.body);
-    res.redirect('/administrador');}
+    res.redirect('/principal');}
     catch(e){
       res.send('error');
     }
