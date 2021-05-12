@@ -20,7 +20,8 @@ myModal._element.querySelector(".guardar").addEventListener("click", function (e
   fetch('https://safetyplace.herokuapp.com/api/add', { method: "POST",
   headers: {
     'Accept': 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin: *'
   }, body: JSON.stringify(vulnerabilidad) })
 
     .then(response => response.json())
