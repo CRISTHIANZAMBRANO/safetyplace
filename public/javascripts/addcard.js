@@ -17,7 +17,7 @@ myModal._element.querySelector(".guardar").addEventListener("click", function (e
   let u=$(".identificacion").val();
   console.log(u)
   vulnerabilidad.idus=u;
-  fetch('http://localhost:5000/api/add', { method: "POST",
+  fetch('https://safetyplace.herokuapp.com/api/add', { method: "POST",
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
