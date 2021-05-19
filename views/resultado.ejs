@@ -19,7 +19,7 @@
     <table class="table table-bordered table-hover tablita">
       <thead>
         <tr>
-          
+          <th>ID de la vulnerabilidad</th>
           <th>vulnerabilidad</th>
           <th>tipo</th>
           <th>tecnología</th>
@@ -33,6 +33,7 @@
       <tbody>
         <% for(var i=0; i < h.length; i++) { %>
           <tr>
+            <td><%= h[i]._id %></td>
             <td><%= h[i].vulnerabilidad %></td>
             <td><%= h[i].tipo_vulnerabilidad %></td>
             <td><%= h[i].tecnología %></td>
