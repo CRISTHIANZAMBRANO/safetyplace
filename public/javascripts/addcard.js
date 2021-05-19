@@ -21,7 +21,7 @@ myModal._element.querySelector(".guardar").addEventListener("click", function (e
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
-    'mode':'no-cors'
+    'Access-Control-Allow-Origin':'*'
   }, body: JSON.stringify(vulnerabilidad) })
 
     .then(response => response.json())
