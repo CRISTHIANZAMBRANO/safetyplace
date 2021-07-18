@@ -8,6 +8,7 @@ let VulSchema= new Schema({
     impacto_medido:String,
     usuariosafectados: String,
     contramedida: String,
+    tipocolumna:String,
     idus:String
 
 },{timestamps:true});

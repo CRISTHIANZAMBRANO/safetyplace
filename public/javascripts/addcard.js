@@ -1,9 +1,11 @@
 let a = document.querySelectorAll(".contenedorcard");
 var myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
 let indexcolumn = 0;
+let tipocolumna="";
 a.forEach((i, index) => {
   i.addEventListener("dblclick", function () {
     myModal.show()
+    tipocolumna=i.dataset.contenedor;
     indexcolumn = index;
   });
 
@@ -14,10 +16,11 @@ myModal._element.querySelector(".guardar").addEventListener("click", function (e
     obj[item.name] = item.value;
     return obj;
 }, {});
+vulnerabilidad.tipocolumna=tipocolumna;
   let u=$(".identificacion").val();
   console.log(u)
   vulnerabilidad.idus=u;
-  fetch('https://safetyplace.herokuapp.com/api/add', { method: "POST",
+  fetch('/api/add', { method: "POST",
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
@@ -29,8 +32,8 @@ myModal._element.querySelector(".guardar").addEventListener("click", function (e
       console.log(data);
       //crear popup element HTML
       const tarjeta = `
-  <div class="row ">
-    <div class="card text-center ">
+  <div class="row " data-idcard="${data._id}">
+    <div class="card text-center header ">
       <div class="card-header">
         
       </div>
@@ -43,28 +46,7 @@ myModal._element.querySelector(".guardar").addEventListener("click", function (e
       </div>
     </div>
   </div>
-  <style>
-  .row{
-    margin-left:0;
-    box-sizing: border-box;
-    border-radius: 10px;
-    display: inline-block;
-    vertical-align: top;
-    width:272px;
-  }
-  .fecha{
-    background-color: none;
-    color: black;
-  }
-  .fecha{
-    justify-content: center;
-  }
-  .accion{
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-  }
-  </style>
+ 
 `;
 
       let doc = new DOMParser().parseFromString(tarjeta, "text/html").body;

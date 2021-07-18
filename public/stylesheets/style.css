@@ -47,7 +47,7 @@
 .contenedorcard{
   background-color: grey;
   margin:0 4px;
-  height: fit-content;
+  min-height:7.5rem;
   box-sizing: border-box;
   border-radius: 10px;
   display: inline-block;
@@ -62,6 +62,7 @@
   display: inline-block;
   vertical-align: top;
   width:272px;
+  padding: 0.6rem;
 }
 .nombreusr{
   left: calc(45%);
@@ -83,9 +84,14 @@
   background-color: transparent ;
   
   position: absolute;
-  width: 100%;
+  width:fit-content;
   top: 50%;
   transform: translateY(-50%);
+}
+@media(min-width:768px){
+  .tabla-responsiva{
+    width: 100%;
+  }
 }
 .tablita{
   border: white;
@@ -104,6 +110,9 @@ align-items: center;
   color: black;
   font-style: normal;
   border: black;
+  display: flex;
+  justify-content:center;
+  width:min(8rem,100%);
 }
 .regresar:hover{
   background-color: greenyellow;
@@ -134,4 +143,11 @@ align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: row;
+}
+.div{
+  margin-right: 3rem;
+}
+h3{
+  width: 272px;
+  background-color: grey;
 }
