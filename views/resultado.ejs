@@ -1,4 +1,5 @@
 <% include partials/_header%> 
+
 <style>
     body {
       background-image: url(/images/fondo.jpg);
@@ -44,7 +45,7 @@
             <td><%= h[i].contramedida %></td>
             
             <td><a href="/principal" class="btn regresar">Volver</a></td>
-            <td><a href="#" class="btn regresar">Añadir</a></td>
+            <td><button  data-id="<%= h[i]._id %>" class="regresar asignar">Añadir</button></td>
            
             
           </tr>
@@ -53,3 +54,4 @@
     </table>
 
   </div>
+  <script src="/javascripts/asignar.js"></script>

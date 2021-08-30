@@ -9,6 +9,7 @@ let VulSchema= new Schema({
     usuariosafectados: String,
     contramedida: String,
     tipocolumna:String,
+    vez_usada:Number,
     idus:String
 
 },{timestamps:true});

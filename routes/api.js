@@ -86,7 +86,7 @@ router.get('/objeto/:id', async function (req, res) {
 });
 router.post('/buscar', async function (req, res) {
   vul
-    .find({ vulnerabilidad: req.body.buscar })
+    .find({ vulnerabilidad: { $regex: new RegExp("^" + req.body.buscar.toLowerCase(), "i") } })
     .then(data => {
       if (data) {
         try {
@@ -118,5 +118,26 @@ router.post('/validarcolumna', async function (req, res, next) {
         res.json(docs);
       }
     });
+});
+router.post('/agregarworkspace', async function (req, res, next) {
+  let idvul = req.body.idvul
+  let idusu = req.session.idusr;
+  vul.findByIdAndUpdate({ _id: idvul }, { $inc: { vez_usada: 1 } }, function (error, update) {
+    if (error)
+      return res.json(error);
+    const counter = JSON.parse(JSON.stringify(update));
+    counter.idus = idusu;
+    counter.vez_usada = 1;
+    delete counter._id;
+    delete counter.createdAt;
+    delete counter.updatedAt;
+    delete counter.__v
+    new vul(counter).save().then(function () {
+      res.json({ status: true });
+    }).catch(function (e) { console.log(e) });
+
+
+
+  });
 });
 module.exports = router;
