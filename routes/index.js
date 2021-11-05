@@ -57,4 +57,12 @@ router.get('/principal', async function(req, res, next) {
   }
   
 });
+router.get('/pruebita', async function(req, res, next) {
+try{
+  res.render('inicio');
+}
+catch(e){
+  res.send('error');
+}
+});
 module.exports = router;
