@@ -59,7 +59,7 @@ router.post('/validar', function (req, res) {
       if (data) {
         req.session.idusr = data._id;
         req.session.nombre = data.nombre;
-        res.redirect("/principal")
+        res.redirect("/pruebita")
 
 
       }

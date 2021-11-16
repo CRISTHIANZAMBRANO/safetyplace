@@ -22,13 +22,13 @@
         <tr>
           <th>ID de la vulnerabilidad</th>
           <th>vulnerabilidad</th>
+          <th>#. veces implementada</th>
           <th>tipo</th>
           <th>tecnología</th>
           <th>Descripción</th>
           <th>impacto_medido</th>
           <th>usuarios afectados</th>
           <th>contramedida</th>
-          <th>Regresar</th>
           <th>Añadir vulnerabilidad a tu espacio personal</th>
         </tr>
       </thead>
@@ -37,14 +37,13 @@
           <tr>
             <td><%= h[i]._id %></td>
             <td><%= h[i].vulnerabilidad %></td>
+            <td><%= h[i].vez_usada %></td>
             <td><%= h[i].tipo_vulnerabilidad %></td>
             <td><%= h[i].tecnología %></td>
             <td><%= h[i].impacto %></td>
             <td><%= h[i].impacto_medido %></td>
             <td><%= h[i].usuariosafectados %></td>
             <td><%= h[i].contramedida %></td>
-            
-            <td><a href="/principal" class="btn regresar">Volver</a></td>
             <td><button  data-id="<%= h[i]._id %>" class="regresar asignar">Añadir</button></td>
            
             
