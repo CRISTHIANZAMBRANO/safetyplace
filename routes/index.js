@@ -57,7 +57,7 @@ router.get('/principal', async function(req, res, next) {
   }
   
 });
-router.get('/pruebita', async function(req, res, next) {
+router.get('/inicio', async function(req, res, next) {
 try{
   res.render('inicio');
 }

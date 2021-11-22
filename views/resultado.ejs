@@ -29,6 +29,7 @@
           <th>impacto_medido</th>
           <th>usuarios afectados</th>
           <th>contramedida</th>
+          <th>Encuesta</th>
           <th>Añadir vulnerabilidad a tu espacio personal</th>
         </tr>
       </thead>
@@ -44,7 +45,8 @@
             <td><%= h[i].impacto_medido %></td>
             <td><%= h[i].usuariosafectados %></td>
             <td><%= h[i].contramedida %></td>
-            <td><button  data-id="<%= h[i]._id %>" class="regresar asignar">Añadir</button></td>
+            <td><a href="https://docs.google.com/forms/d/e/1FAIpQLScYevwtbyCYMDTxBSkDTPXVac1Yk6zSjEVqOwoL_06eGzmtbQ/viewform"><button class='btn btn-info'>Encuesta</button></a></td>
+            <td><button  data-id="<%= h[i]._id %>" class="btn btn-success asignar">Añadir</button></td>
            
             
           </tr>
