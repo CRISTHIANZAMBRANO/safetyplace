@@ -20,35 +20,37 @@
     <table class="table table-bordered table-hover tablita">
       <thead>
         <tr>
-          <th>ID de la vulnerabilidad</th>
-          <th>vulnerabilidad</th>
-          <th>#. veces implementada</th>
-          <th>tipo</th>
-          <th>tecnología</th>
-          <th>Descripción</th>
-          <th>impacto_medido</th>
-          <th>usuarios afectados</th>
-          <th>contramedida</th>
-          <th>Encuesta</th>
-          <th>Resultados de la encuesta</th>
-          <th>Añadir vulnerabilidad a tu espacio personal</th>
+          <th style="text-align: center">ID de la contramedida</th>
+          <th style="text-align: center">#.Veces implementada</th>
+          <th style="text-align: center">Vulnerabilidad</th>
+          <th style="text-align: center">Tipo</th>
+          <th style="text-align: center">Tecnología</th>
+          <th style="text-align: center">Descripción</th>
+          <th style="text-align: center">Impacto</th>
+          <th style="text-align: center">Usuarios afectados</th>
+          <th style="text-align: center">Contramedida</th>
+          <th style="text-align: center">Modo de implementación</th>
+          <th style="text-align: center">Encuesta</th>
+          <th style="text-align: center">Resultados de la encuesta</th>
+          <th style="text-align: center">Añadir vulnerabilidad a tu espacio personal</th>
         </tr>
       </thead>
       <tbody>
         <% for(var i=0; i < h.length; i++) { %>
           <tr>
-            <td><%= h[i]._id %></td>
-            <td><%= h[i].vulnerabilidad %></td>
-            <td><%= h[i].vez_usada %></td>
-            <td><%= h[i].tipo_vulnerabilidad %></td>
-            <td><%= h[i].tecnología %></td>
-            <td><%= h[i].impacto %></td>
-            <td><%= h[i].impacto_medido %></td>
-            <td><%= h[i].usuariosafectados %></td>
-            <td><%= h[i].contramedida %></td>
-            <td><a href="https://docs.google.com/forms/d/e/1FAIpQLScYevwtbyCYMDTxBSkDTPXVac1Yk6zSjEVqOwoL_06eGzmtbQ/viewform"><button class='btn btn-info'>Encuesta</button></a></td>
-            <td><a href="https://app.powerbi.com/view?r=eyJrIjoiN2ZiMzIxZjUtZGZjYi00MDJhLThmZTktODE2NDc4YTI3YjZhIiwidCI6Ijc5ODcxZWIxLTYwOTYtNDJiZi05OGVmLWI0ZjNlNGVmODMxOCIsImMiOjR9&pageName=ReportSection"><button class='btn btn-info'>Resultados</button></a></td>
-            <td><button  data-id="<%= h[i]._id %>" class="btn btn-success asignar">Añadir</button></td>
+            <td align="center"><%= h[i]._id %></td>
+            <td align="center"><%= h[i].vez_usada %></td>
+            <td align="justify"><%= h[i].vulnerabilidad %></td>
+            <td align="justify"><%= h[i].tipo_vulnerabilidad %></td>
+            <td align="justify"><%= h[i].tecnología %></td>
+            <td align="justify"><%= h[i].impacto %></td>
+            <td align="center"><%= h[i].impacto_medido %></td>
+            <td align="justify"><%= h[i].usuariosafectados %></td>
+            <td align="justify"><%= h[i].contramedida %></td>
+            <td align="center"><%=h[i].implementacion %></td>
+            <td align="center"><a href="https://docs.google.com/forms/d/e/1FAIpQLScYevwtbyCYMDTxBSkDTPXVac1Yk6zSjEVqOwoL_06eGzmtbQ/viewform"><button class='btn btn-info'>Encuesta</button></a></td>
+            <td align="center"><a href="https://app.powerbi.com/view?r=eyJrIjoiN2ZiMzIxZjUtZGZjYi00MDJhLThmZTktODE2NDc4YTI3YjZhIiwidCI6Ijc5ODcxZWIxLTYwOTYtNDJiZi05OGVmLWI0ZjNlNGVmODMxOCIsImMiOjR9&pageName=ReportSection"><button class='btn btn-info'>Resultados</button></a></td>
+            <td align="center"><button  data-id="<%= h[i]._id %>" class="btn btn-success asignar">Añadir</button></td>
            
             
           </tr>

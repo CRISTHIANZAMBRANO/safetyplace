@@ -10,6 +10,7 @@ let VulSchema= new Schema({
     contramedida: String,
     tipocolumna:String,
     vez_usada:Number,
+    implementacion:String,
     idus:String
 
 },{timestamps:true});

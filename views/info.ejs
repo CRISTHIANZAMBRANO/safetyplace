@@ -4,40 +4,42 @@
       background-image: url(/images/fondo.jpg);
       background-size: cover;
       background-attachment: fixed;
+      
     }
 </style>
-<div>
-    <p>prueba</p>
-</div>
-<br>
-<div class="d-flex  tabla">
+
+<div class="d-flex table-responsive">
     
     <table class="table table-bordered table-hover tablita">
       <thead>
         <tr>
-          <th>ID de la vulnerabilidad</th>
-          <th>vulnerabilidad</th>
-          <th>tipo</th>
-          <th>tecnología</th>
-          <th>Descripción</th>
-          <th>impacto_medido</th>
-          <th>usuarios afectados</th>
-          <th>contramedida</th>
-          <th>Regresar</th>
+          <th style="text-align: center">ID de la contramedida</th>
+          <th style="text-align: center">#.Veces implementada</th>
+          <th style="text-align: center">Vulnerabilidad</th>
+          <th style="text-align: center">Tipo</th>
+          <th style="text-align: center">Tecnología</th>
+          <th style="text-align: center">Descripción</th>
+          <th style="text-align: center">Impacto</th>
+          <th style="text-align: center">Usuarios afectados</th>
+          <th style="text-align: center">Contramedida</th>
+          <th style="text-align: center">Implementacion</th>
+          <th style="text-align: center">Regresar</th>
         </tr>
       </thead>
       <tbody>
 
           <tr>
-            <td><%= muestra._id %></td>
-            <td><%= muestra.vulnerabilidad %></td>
-            <td><%= muestra.tipo_vulnerabilidad %></td>
-            <td><%= muestra.tecnología %></td>
-            <td><%= muestra.impacto %></td>
-            <td><%= muestra.impacto_medido %></td>
-            <td><%= muestra.usuariosafectados %></td>
-            <td><%= muestra.contramedida %></td>
-            <td><a href="/principal" class="btn regresar">Volver</a></td>
+            <td align="center"><%= muestra._id %></td>
+            <td align="center"><%= muestra.vez_usada %></td>
+            <td align="center"><%= muestra.vulnerabilidad %></td>
+            <td align="center"><%= muestra.tipo_vulnerabilidad %></td>
+            <td align="center"><%= muestra.tecnología %></td>
+            <td align="center"><%= muestra.impacto %></td>
+            <td align="center"><%= muestra.impacto_medido %></td>
+            <td align="center"><%= muestra.usuariosafectados %></td>
+            <td align="center"><%= muestra.contramedida %></td>
+            <td align="center"><%= muestra.implementacion %></td>
+            <td align="center"><a href="/principal" class="btn regresar">Volver</a></td>
            
             
           </tr>

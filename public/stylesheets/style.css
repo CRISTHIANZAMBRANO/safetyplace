@@ -81,12 +81,10 @@
 }
 .tabla{
 
-  background-color: transparent ;
-  
-  position: absolute;
-  width:fit-content;
-  top: 50%;
-  transform: translateY(-50%);
+  background-color: yellow ;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
 }
 @media(min-width:768px){
   .tabla-responsiva{
